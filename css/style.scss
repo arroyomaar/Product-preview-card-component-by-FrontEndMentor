@@ -1,0 +1,105 @@
+@import 'funciones';
+$Dark_cyan: hsl(158, 36%, 37%);
+$Cream: hsl(30, 38%, 92%);
+$Very_dark_blue: hsl(212, 21%, 14%);
+$Dark_grayish_blue: hsl(228, 12%, 48%);
+$White: hsl(0, 0%, 100%);
+$Font_size: 13px;
+$font-family-2: 'Fraunces', serif;//h1 y precio
+$font-family-1: 'Montserrat', sans-serif;
+@include background_size_color($font-family-1,$Font_size,500, $Cream,
+    100%,667px,none,
+    340px,615px,20px,
+    100%,800px,none,
+    600px,450px,30px);
+.card{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width:1440px) {
+        flex-direction: row;
+    }
+}
+.image{
+    @media screen and (min-width:1440px) {
+        img{
+            display: none;
+        }
+        // background-size: 100% 300px;
+        // background-position: center center;
+        width: 50%;
+        background-image: url(../images/image-product-desktop.jpg);
+        background-repeat: no-repeat;
+        background-size: cover  ;
+    }
+}
+.text-content{
+    padding: 25px;
+    background-color: $White;
+    @media screen and (min-width:1440px) {
+        width: 50%;
+        padding:33px;
+    }
+}
+.perfume{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $Dark_grayish_blue;
+}
+.title{
+    margin: 20px 0;
+    font-family: $font-family-2;
+    font-weight: 700;
+    width: 260px;
+    font-size: 25px;
+    color: $Very_dark_blue;
+    // line-height: 2;
+    @media screen and (min-width:1440px) {
+        margin: 28px 0;
+    }
+}
+.tex{
+    line-height: 2;
+    color: $Dark_grayish_blue;
+    margin-bottom: 30px;
+}
+.price{
+    display: flex;
+    justify-content: space-between;
+    width: 190px;
+    margin-bottom: 15px;
+    .main-price{
+        font-family: $font-family-2;
+        color: $Dark_cyan;
+        font-size: 30px;
+    }
+    .tacha{
+        margin-top: 10px;
+        //  text-decoration: line-through;
+        color: $Dark_grayish_blue;
+        
+    }
+    @media screen and (min-width:1440px) {
+        margin-bottom: 30px;
+    }
+}
+.bt{
+    @include with_heigth(290px,45px,15px);
+    background-color: $Dark_cyan;
+    color: $White;
+    font-weight: 700;
+    border: 1px solid $Dark_cyan;
+    @include center_box_father();
+    img{
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
+    }
+    &:hover{
+        background-color: $White;
+        color: $Dark_cyan;
+    }
+    @media screen and (min-width:1440px) {
+        @include with_heigth(235px,45px,15px);
+    }
+}

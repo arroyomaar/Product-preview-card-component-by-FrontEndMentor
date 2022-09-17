@@ -1,0 +1,79 @@
+@mixin with_heigth($width,$height,$border-radius){
+    width: $width;
+    height: $height;
+    border-radius: $border-radius;
+}
+@mixin reinicio_navegador(){
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+    }    
+}
+
+@mixin center_box_position_son(){
+    //father postion relative
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+@mixin center_box_father(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin center_text_father(){
+    text-align:center
+}
+@mixin center_text_son($hei){
+    line-height:$hei;
+}
+@mixin center_box_negative_margin_son($margin_top,$margin_left){
+        position:absolute;
+        left:50%;
+        top:50%;
+        margin:-$margin_top 0 0 -$margin_left;
+}
+
+@mixin body_configuracion($tipografia,$font_size,$font_weigth){
+    body{
+        height: 100%;
+        width: 100%;
+        font-family: $tipografia, sans-serif;
+        font-size: $font_size;
+        font-weight: $font_weigth;
+    }    
+}
+
+
+    @mixin background_size_color($tipografia,$font_size,$font_weigth,$background,
+    $widthC,$heightC,$border-radiusC,
+    $widthB,$heightB,$border-radiusB,
+    $widthCm,$heightCm,$border-radiusCm,
+    $widthBm,$heightBm,$border-radiusBm) {
+        @include reinicio_navegador();
+        @include body_configuracion($tipografia,$font_size,$font_weigth);//body
+        .container{
+            background-color: $background;
+            @include center_box_father();
+            @include with_heigth($widthC,$heightC,$border-radiusC)
+        }
+        .card{
+            // padding-top: 80px;
+            @include with_heigth($widthB,$heightB,$border-radiusB)
+        }
+        @media screen and (min-width:1440px) {
+            .container{
+                @include with_heigth($widthCm,$heightCm,$border-radiusCm)
+            }
+            .card{
+                // padding-top: 80px;
+                @include with_heigth($widthBm,$heightBm,$border-radiusBm)
+            }
+        }
+    }
